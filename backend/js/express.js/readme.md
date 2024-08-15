@@ -1,4 +1,6 @@
 # Express.js  
+==================
+
 
 
 ## Readme.md   
@@ -16,38 +18,43 @@
 ### Ссылка на Swagger документацию
 [API Документация](http://localhost:3000/api-docs)
 
+
+------------------
+
 ## Архитектура  
 |- src  
-   |- app.js             # Конфигурация   Express-приложения (инициализация middleware, роутов и т.д.)  
-   |- index.js           # Точка входа, запуск сервера  
-   |- constants          # Храним константные значения для проекта (например, статусы ответов, роли и т.д.)  
-   |  |- index.js        # Экспорт всех констант  
-   |- docs               # Документация проекта  
-   |  |- swagger.json    # Конфигурация Swagger для API  
-   |  |- docs.md         # Дополнительная текстовая документация  
-   |- errors             # Кастомные инстансы ошибок  
-   |  |- NotFoundError.js  
-   |  |- ValidationError.js  
-   |- middlewares        # Мидлвары для обработки запросов (например, аутентификация, логирование)  
-   |  |- authMiddleware.js  
-   |  |- errorHandler.js # Глобальный обработчик ошибок  
-   |- public             # Статичные файлы (HTML, CSS, JS, изображения)  
-   |  |- index.html  
-   |- tests              # Тесты  
-   |  |- integration     # Интеграционные тесты  
-   |  |- unit            # Юнит-тесты  
-   |- utils              # Хелперы и вспомогательные функции  
-   |  |- logger.js       # Логирование  
-   |- routes             # Инициализация маршрутов приложения  
-   |  |- index.js        # Основной файл для объединения всех маршрутов  
-   |  |- userRoutes.js   # Маршруты для работы с пользователями  
-   |- controllers        # Логика обработки запросов и ответов  
-   |  |- userController.js  
-   |- services           # Логика по работе с моделями и бизнес-логика  
-   |  |- userService.js  
-   |- models             # ORM модели сущностей базы данных  
-      |- userModel.js    # Модель пользователя (например, для Mongoose)  
+   &nbsp;&nbsp;|- app.js             # Конфигурация   Express-приложения (инициализация middleware, роутов и т.д.)  
+   &nbsp;&nbsp;|- index.js           # Точка входа, запуск сервера  
+   &nbsp;&nbsp;|- constants          # Храним константные значения для проекта (например, статусы ответов, роли и т.д.)  
+   &nbsp;&nbsp;|  |- index.js        # Экспорт всех констант  
+   &nbsp;&nbsp;|- docs               # Документация проекта  
+   &nbsp;&nbsp;|  |- swagger.json    # Конфигурация Swagger для API  
+   &nbsp;&nbsp;|  |- docs.md         # Дополнительная текстовая документация  
+   &nbsp;&nbsp;|- errors             # Кастомные инстансы ошибок  
+   &nbsp;&nbsp;|  |- NotFoundError.js  
+   &nbsp;&nbsp;|  |- ValidationError.js  
+   &nbsp;&nbsp;|- middlewares        # Мидлвары для обработки запросов (например, аутентификация, логирование)  
+   &nbsp;&nbsp;|  |- authMiddleware.js  
+   &nbsp;&nbsp;|  |- errorHandler.js # Глобальный обработчик ошибок  
+   &nbsp;&nbsp;|- public             # Статичные файлы (HTML, CSS, JS, изображения)  
+   &nbsp;&nbsp;|  |- index.html  
+   &nbsp;&nbsp;|- tests              # Тесты  
+   &nbsp;&nbsp;|  |- integration     # Интеграционные тесты  
+   &nbsp;&nbsp;|  |- unit            # Юнит-тесты  
+   &nbsp;&nbsp;|- utils              # Хелперы и вспомогательные функции  
+   &nbsp;&nbsp;|  |- logger.js       # Логирование  
+   &nbsp;&nbsp;|- routes             # Инициализация маршрутов приложения  
+   &nbsp;&nbsp;|  |- index.js        # Основной файл для объединения всех маршрутов  
+   &nbsp;&nbsp;|  |- userRoutes.js   # Маршруты для работы с пользователями  
+   &nbsp;&nbsp;|- controllers        # Логика обработки запросов и ответов  
+   &nbsp;&nbsp;|  |- userController.js  
+   &nbsp;&nbsp;|- services           # Логика по работе с моделями и бизнес-логика  
+   &nbsp;&nbsp;|  |- userService.js  
+   &nbsp;&nbsp;|- models             # ORM модели сущностей базы данных  
+   &nbsp;&nbsp;&nbsp;&nbsp;|- userModel.js    # Модель пользователя (например, для Mongoose)  
 
+
+------------------
 
 ## Eslint
 Проект должен соответствовать критериям Eslint. Конфигурация лежит одной директорией выше
