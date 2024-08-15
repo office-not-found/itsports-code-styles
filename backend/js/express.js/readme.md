@@ -8,7 +8,7 @@
 
 ### Стек технологий  
 - **Node.js** и **Express.js** — для создания серверного приложения.
-- **MongoDB** или другая база данных — для хранения данных.
+- **PostgreSQL** или другая база данных — для хранения данных.
 - **Swagger** — для документирования API.
 - **Jest/Mocha** — для тестирования.
 - **ESLint** — для проверки кода.
@@ -48,7 +48,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;|-- **services**           # Логика по работе с моделями и бизнес-логика  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- userService.js  
 &nbsp;&nbsp;&nbsp;&nbsp;|-- **models**             # ORM модели сущностей базы данных  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- userModel.js    # Модель пользователя (например, для Mongoose)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- userModel.js    # Модель пользователя (например, для Sequelize.js)  
 
 ------------------
 
