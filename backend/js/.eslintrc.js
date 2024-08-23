@@ -26,7 +26,11 @@ module.exports = {
     "keyword-spacing": ["error", { after: true }],
     "eol-last": "error",
     indent: ["error", 4],
-    "space-before-function-paren": ["error", "never"],
+    "space-before-function-paren": ["error", {
+      "anonymous": "never",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
     "prefer-promise-reject-errors": 2,
     curly: "on",
     "comma-dangle": ["error", "never"],
