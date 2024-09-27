@@ -43,7 +43,7 @@ npm i -D lint-staged
 ```json
 "lint-staged": {
         "src/**/*.ts?(x)": [
-            "eslint --cache --fix", // линтинг и фикс ошибков (если прописано в конфиге)
+            "eslint --cache --fix", // линтинг и фикс ошибок (если прописано в конфиге)
             "prettier --write" // форматирование
         ],
         "src/**/*.?(s)css": [

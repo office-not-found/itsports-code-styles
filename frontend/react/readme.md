@@ -7,7 +7,7 @@
 - Redux Toolkit
 
 ## Команда для старта приложения с Redux Toolkit
-```bash
+```shell
 npx degit reduxjs/redux-templates/packages/vite-template-redux my-app
 ```
 
@@ -16,6 +16,6 @@ npx degit reduxjs/redux-templates/packages/vite-template-redux my-app
 
 ## Prettier
 В поле plugins указан плагин prettier-plugin-organize-imports. Для корректной работы необходимо установить данный плагин в проект:
-```bash
+```shell
 npm i -D prettier-plugin-organize-imports
 ```
