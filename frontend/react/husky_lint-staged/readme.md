@@ -18,9 +18,13 @@ pre-commit файл будет исполнятся при каждом испо
 
 ### Конфигурация pre-commit хука
 ```shell
-echo "🔍🎨 Linting and formatting staged files before commit!"
+echo "🔍🎨 Linting and formatting staged files before commit!" 
 
-npx lint-staged || echo "💀❌ Lint failed! Check out errors from console and fix it before commit"
+npx lint-staged
+if [ $? -ne 0 ]; then
+  echo "💀❌ Lint failed! Check out errors from console and fix it before commit"
+  exit 1
+fi
 
 echo "🥳✅ Formatting and linting process completed!"
 ```
