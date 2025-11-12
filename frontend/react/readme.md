@@ -214,7 +214,7 @@ npm run type-check     # Проверка типов TypeScript
 
 ### Prettier
 Основные настройки:
-- **printWidth**: 160 символов
+- **printWidth**: 90 символов
 - **tabWidth**: 4 пробела
 - **semi**: обязательные точки с запятой
 - **singleQuote**: двойные кавычки
