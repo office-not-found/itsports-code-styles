@@ -6,7 +6,7 @@ import { ROUTES } from "@/core/config/routes";
 
 const Layout = lazy(() => import("@/pages/layout"));
 const NotFoundPage = lazy(() => import("@/pages/not-found-page"));
-// const LoginPage = lazy(() => import("@/pages/login-page"));
+const LoginPage = lazy(() => import("@/pages/login-page"));
 
 const router = createBrowserRouter([
     {
@@ -15,7 +15,11 @@ const router = createBrowserRouter([
     },
     {
         path: ROUTES.LOGIN,
-        element: <CheckAuthProvider>{/* <LoginPage /> */}</CheckAuthProvider>
+        element: (
+            <CheckAuthProvider>
+                <LoginPage />
+            </CheckAuthProvider>
+        )
     },
     {
         path: ROUTES.INDEX,

@@ -6,3 +6,4 @@ export { Select } from "./select";
 export { Checkbox } from "./checkbox";
 export { Tooltip } from "./tooltip";
 export { Drawer } from "./drawer";
+export { PasswordInput } from "./password-input";
