@@ -289,25 +289,36 @@ npm run type-check     # Проверка типов TypeScript
 **Структура для средних проектов:**
 ```
 src/
-  ├── pages/          # Страницы приложения
+  ├── app/            # Точка входа приложения + провайдеры (Router, Query, Theme)
+  ├── pages/          # Страницы приложения (роутинг, layout)
   ├── modules/        # Бизнес-модули (независимые блоки функционала)
-  ├── components/     # Общие компоненты
-  ├── core/           # Ядро (API, роутинг, глобальные сервисы)
-  ├── ui/             # UI-kit (базовые UI-компоненты)
-  ├── hooks/          # Общие хуки
-  └── utils/          # Утилиты
+  └── core/           # Ядро приложения (общая инфраструктура)
+      ├── api/        # API клиент и конфигурация
+      ├── config/     # Конфигурации (роуты, query, theme, notifications)
+      ├── lib/        # Общие хуки и утилиты
+      ├── model/      # Глобальные типы и модели данных
+      └── ui/         # UI-kit (базовые переиспользуемые компоненты)
 ```
 
-**Упрощенная структура для маленьких проектов:**
-```
-src/
-  ├── components/     # Все компоненты
-  ├── pages/          # Страницы
-  ├── hooks/          # Хуки
-  ├── services/       # API
-  ├── utils/          # Утилиты
-  └── store/          # Store (Zustand/Context)
-```
+**Описание слоёв:**
+
+- **`app/`** - инициализация приложения, провайдеры (QueryProvider, ThemeProvider, RouterProvider)
+- **`pages/`** - страницы приложения, связанные с роутами (Layout, LoginPage, NotFoundPage)
+- **`modules/`** - бизнес-модули с собственной структурой (api, lib, model, query, ui)
+  ```
+  modules/account-module/
+    ├── api/       # API запросы модуля
+    ├── lib/       # Хуки и утилиты модуля
+    ├── model/     # Типы, валидация, store модуля
+    ├── query/     # React Query хуки
+    └── ui/        # UI-компоненты модуля
+  ```
+- **`core/`** - переиспользуемая инфраструктура:
+  - `api/` - axios клиент с интерцепторами
+  - `config/` - настройки роутинга, React Query, темы, уведомлений
+  - `lib/` - общие хуки (`useSearchParamsObject`) и утилиты (`throwErrorToast`)
+  - `model/` - глобальные TypeScript типы и интерфейсы
+  - `ui/` - базовые UI-компоненты (Button, Modal, TextInput, Select)
 
 **Когда использовать модульную архитектуру:**
 - Маленькие и средние проекты
@@ -333,8 +344,17 @@ src/
 
 Пример использования:
 ```typescript
-import { Component } from "@/components/Component";
-import { helper } from "@/shared/helpers/helper";
+// Импорт UI-компонента из core
+import { Button, Modal } from "@/core/ui";
+
+// Импорт утилиты из core/lib
+import { throwErrorToast } from "@/core/lib";
+
+// Импорт компонента модуля
+import { LoginForm } from "@/modules/account-module";
+
+// Импорт страницы
+import { Layout } from "@/pages/layout";
 ```
 
 ## Переменные окружения
