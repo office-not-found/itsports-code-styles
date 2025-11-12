@@ -1,0 +1,3 @@
+[submodule "frontend/react/module-architecture-template"]
+	path = frontend/react/module-architecture-template
+	url = https://github.com/Hromsi/module-architecture-template-frontend-react.git
