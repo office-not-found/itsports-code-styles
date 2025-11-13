@@ -236,7 +236,108 @@ npm run type-check     # Проверка типов TypeScript
 
 ## Git Workflow
 
+### Conventional Commits
+
+Проекты следует стандарту [Conventional Commits](https://www.conventionalcommits.org/) для единообразия истории коммитов.
+
+#### Формат коммита
+
+```
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+
+**Обязательные части:**
+- `type` - тип изменения
+- `subject` - краткое описание (не более 90 символов)
+
+**Опциональные части:**
+- `scope` - область изменения (компонент, модуль, страница)
+- `body` - детальное описание
+- `footer` - breaking changes, ссылки на issues
+
+#### Типы коммитов
+
+- **`feat:`** - новая функциональность
+  ```bash
+  feat(auth): add login form with validation
+  feat(partners): implement partner search filter
+  ```
+
+- **`fix:`** - исправление бага
+  ```bash
+  fix(header): resolve alignment issue on mobile
+  fix(api): handle timeout errors correctly
+  ```
+
+- **`docs:`** - изменения в документации
+  ```bash
+  docs: update README with new architecture
+  docs(api): add JSDoc comments to auth module
+  ```
+
+- **`style:`** - форматирование кода (не влияет на логику)
+  ```bash
+  style: format code with prettier
+  style(button): adjust padding and margins
+  ```
+
+- **`refactor:`** - рефакторинг без изменения функциональности
+  ```bash
+  refactor(notifications): simplify state management
+  refactor: extract common logic into utils
+  ```
+
+- **`test:`** - добавление или исправление тестов
+  ```bash
+  test(auth): add unit tests for login form
+  test: fix failing E2E tests
+  ```
+
+- **`chore:`** - технические изменения (зависимости, конфиги, сборка)
+  ```bash
+  chore: update dependencies to latest versions
+  chore(ci): add GitHub Actions workflow
+  ```
+
+#### Примеры использования scope
+
+```bash
+# Модуль/фича
+feat(account-module): add password reset functionality
+fix(partners-table): correct sorting logic
+
+# Компонент
+feat(Button): add loading state
+fix(Modal): prevent closing on backdrop click
+
+# Страница
+feat(LoginPage): implement remember me checkbox
+fix(Dashboard): resolve data fetching race condition
+
+# Общие области
+refactor(api): simplify error handling
+chore(deps): update React to v19
+```
+
+#### Breaking Changes
+
+Для изменений, нарушающих обратную совместимость, добавьте `!` после типа или `BREAKING CHANGE:` в footer:
+
+```bash
+feat!: change API response format
+
+BREAKING CHANGE: The auth API now returns tokens in different format.
+Migration guide: ...
+```
+
+Подробнее: [Conventional Commits Specification](https://www.conventionalcommits.org/)
+
 ### Pre-commit hooks
+
 Проект использует **Husky** + **lint-staged** для автоматической проверки перед коммитом:
 
 **TypeScript/TSX файлы**:
