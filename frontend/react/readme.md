@@ -336,6 +336,26 @@ Migration guide: ...
 
 Подробнее: [Conventional Commits Specification](https://www.conventionalcommits.org/)
 
+### Naming веток
+
+Используйте формат: `<type>/<task-number>-<description>`
+
+**Примеры:**
+```bash
+feature/add-login-page
+bugfix/fix-header-alignment
+hotfix/critical-security-fix
+refactor/simplify-api-client
+```
+
+**Типы веток:**
+- `feature/` - новая функциональность
+- `bugfix/` или `fix/` - исправление бага
+- `hotfix/` - срочное исправление в production
+- `refactor/` - рефакторинг кода
+- `docs/` - изменения в документации
+- `chore/` - технические задачи
+
 ### Pre-commit hooks
 
 Проект использует **Husky** + **lint-staged** для автоматической проверки перед коммитом:
