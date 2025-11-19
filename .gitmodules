@@ -2,6 +2,6 @@
 	path = frontend/react/module-architecture-template
 	url = https://github.com/office-not-found/module-architecture-template-frontend-react.git
 
-[submodule "frontend/react/fsd-architecture-template"]
-	path = frontend/react/fsd-architecture-template
-	url = https://github.com/office-not-found/fsd-architecture-template-frontend-react.git
+# [submodule "frontend/react/fsd-architecture-template"]
+# 	path = frontend/react/fsd-architecture-template
+# 	url = https://github.com/office-not-found/fsd-architecture-template-frontend-react.git
