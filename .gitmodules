@@ -4,3 +4,6 @@
 [submodule "frontend/react/fsd-architecture-template"]
 	path = frontend/react/fsd-architecture-template
 	url = https://github.com/office-not-found/fsd-architecture-template-frontend-react.git
+[submodule "frontend/nextjs/module-architecture-template"]
+	path = frontend/nextjs/module-architecture-template
+	url = https://github.com/office-not-found/module-architecture-template-nextjs.git
