@@ -272,6 +272,22 @@ npm run type-check     # Проверка типов TypeScript
 - `stylelint-config-standard-scss` - стандарт для SCSS
 - `stylelint-config-clean-order` - упорядочивание CSS свойств
 
+#### Интеграция Stylelint с VS Code
+
+Чтобы Stylelint подсвечивал ошибки и автоматически исправлял их при сохранении файла:
+
+1. Установите расширение **Stylelint** в VS Code.
+2. В `settings.json` VS Code добавьте настройки:
+
+```json
+{
+  "stylelint.validate": ["css", "scss"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true
+  }
+}
+```
+
 ### TypeScript
 - **Strict mode** включен
 - **Path aliases**: `@/*` → `./src/*`
