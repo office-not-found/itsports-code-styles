@@ -1,0 +1,40 @@
+{
+    "env": {
+        "browser": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/jsx-runtime",
+        "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "settings": {
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryTypes": true
+            }
+        }
+    },
+    "plugins": ["@typescript-eslint", "prettier"],
+    "root": true,
+    "ignorePatterns": ["vite.config.ts", "public/**", "build/**", "dist/**"],
+    "rules": {
+        "prettier/prettier": "error",
+        "react-hooks/exhaustive-deps": "off",
+        "@typescript-eslint/consistent-type-imports": [
+            2,
+            { "fixStyle": "separate-type-imports" }
+        ],
+        "prefer-promise-reject-errors": "error",
+        "curly": "off",
+        "quotes": ["error", "double", { "allowTemplateLiterals": true }],
+        "spaced-comment": ["error", "always"],
+        "prefer-const": ["error", { "destructuring": "all" }],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+        "no-useless-call": "error",
+        "semi": ["error", "always"],
+        "no-return-await": "error",
+        "no-console": ["error", { "allow": ["warn", "error"] }]
+    }
+}

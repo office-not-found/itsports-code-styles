@@ -6,9 +6,8 @@
     "singleQuote": false,
     "quoteProps": "consistent",
     "jsxSingleQuote": false,
-    "trailingComma": "none",
     "bracketSpacing": true,
-    "jsxBracketSameLine": false,
+    "bracketSameLine": false,
     "arrowParens": "always",
     "endOfLine": "lf",
     "plugins": ["prettier-plugin-organize-imports"]
