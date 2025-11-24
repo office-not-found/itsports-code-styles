@@ -43,14 +43,28 @@
 
 ---
 
+## Для каких проектов подходит эта документация
+
+Эта документация описывает **общие договорённости по конфигурации и code style** для фронтенд‑приложений на базе:
+
+- React + Vite (SPA)
+- Next.js (App Router)
+
+Правила для **ESLint, Prettier, Stylelint, Husky, lint-staged, Git Workflow и архитектуры** едины для обоих типов проектов.  
+Отличаются в основном:
+
+- **скрипты `dev` / `build` / `start`** в `package.json` (Vite vs Next.js)
+- формат **переменных окружения** (`VITE_…` для Vite и `NEXT_PUBLIC_…` для Next.js)
+
 ## Стек технологий
 
 ### Основные
-- **[React](https://react.dev/)** - библиотека для построения пользовательских интерфейсов
+- **[React](https://react.dev/)** / **[Next.js](https://nextjs.org/)** - фреймворк/библиотека для построения пользовательских интерфейсов
 - **[TypeScript](https://www.typescriptlang.org/)** - типизированный JavaScript
 - **[Zustand](https://zustand-demo.pmnd.rs/)** - state management
 - **[React Query](https://tanstack.com/query/latest)** - асинхронное управление состоянием и кэширование данных
-- **[Vite](https://vitejs.dev/)** - инструмент сборки и dev-сервер
+- **[Vite](https://vitejs.dev/)** - инструмент сборки и dev-сервер для React‑SPA проектов (альтернатива связке webpack + dev-server)
+- **Встроенный webpack/Turbopack Next.js** - сборка и бандлинг для Next.js приложений (конфигурация по умолчанию, без ручного `webpack.config.js`)
 - **[React Router](https://reactrouter.com/)** - маршрутизация
 
 ### UI и стили
@@ -168,7 +182,7 @@ npm install
 
 ### Скрипты package.json
 
-Добавьте следующие скрипты в ваш `package.json`:
+Добавьте следующие скрипты в ваш `package.json` (пример для **React + Vite** проекта):
 
 ```json
 {
@@ -196,6 +210,25 @@ npm install
       "prettier --write",
       "stylelint \"**/*.scss\" --fix"
     ]
+  }
+}
+```
+
+Для **Next.js** проектов используются те же подходы к линтингу, форматированию, Stylelint, Husky и lint-staged, но скрипты сборки и запуска отличаются, например:
+
+```json
+{
+  "scripts": {
+    "dev": "next dev -p 5173",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write .",
+    "stylelint": "stylelint \"**/*.scss\"",
+    "stylelint:fix": "stylelint \"**/*.scss\" --fix",
+    "type-check": "tsc --noEmit",
+    "prepare": "husky"
   }
 }
 ```
@@ -523,7 +556,9 @@ import { Layout } from "@/pages/layout";
 
 ## Переменные окружения
 
-Создайте файл `.env` в корне проекта. Vite автоматически загружает переменные с префиксом `VITE_`:
+Создайте файл `.env` в корне проекта.
+
+- Для **Vite (React)** переменные должны иметь префикс `VITE_`:
 
 ```env
 VITE_API_URL=http://localhost:3000
@@ -532,6 +567,17 @@ VITE_API_URL=http://localhost:3000
 Доступ в коде:
 ```typescript
 const apiUrl = import.meta.env.VITE_API_URL;
+```
+
+- Для **Next.js** переменные, доступные на клиенте, должны иметь префикс `NEXT_PUBLIC_`:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3000
+```
+
+Доступ в коде:
+```typescript
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 ```
 
 ## Полезные ссылки
