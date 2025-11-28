@@ -266,6 +266,7 @@ npm run type-check     # Проверка типов TypeScript
 
 ### ESLint
 Используется конфигурация `eslint-config-react-app` с дополнительными правилами Prettier.
+Для проектов с модульной архитектурой дополнительно подключён отдельный набор правил на базе `eslint-plugin-boundaries` (конфиг в файле `frontend/configs/.eslintrc-module-architecture-rules.modules.json`), который контролирует допустимые импорты между слоями (`app`, `pages`, `modules`, `shared`) и запрещает обход public API модулей.
 **Важно**: проект использует ESLint версии < 9.x.
 
 ### Prettier
@@ -533,6 +534,8 @@ src/
 - Глобальное состояние может создавать неявные связи
 
 Подробнее: [Модульная архитектура на HackFrontend](https://www.hackfrontend.com/docs/architecture/module)
+
+Для проектов с модульной архитектурой в этом репозитории используется отдельный ESLint-конфиг `frontend/configs/.eslintrc-module-architecture-rules.modules.json` на базе `eslint-plugin-boundaries`, который контролирует допустимые связи между слоями (`app`, `pages`, `modules`, `shared`) и заставляет импортировать модули только через их public API (barrel-файлы `index.ts`).
 
 ### Алиасы путей
 - `@/` - алиас для директории `src/`
